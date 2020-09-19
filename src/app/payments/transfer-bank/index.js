@@ -78,10 +78,10 @@ const PaymentSuccess = () => {
             <Typography variant="body2">Account No:</Typography>
             <Typography variant="body1">800167834500</Typography>
           </div>
-          <div className={classes.content}>
-            <Typography variant="body2">Branch Code:</Typography>
-            <Typography variant="body1">20320 - Bogor - Juanda</Typography>
-          </div>
+          {/*<div className={classes.content}>*/}
+          {/*  <Typography variant="body2">Branch Code:</Typography>*/}
+          {/*  <Typography variant="body1">20320 - Bogor - Juanda</Typography>*/}
+          {/*</div>*/}
           <div className={classes.content}>
             <Typography variant="body2">Product Code:</Typography>
             <Typography variant="body1">CAGSME0001</Typography>
