@@ -89,7 +89,7 @@ const Info = () => {
             <div>
               <Typography variant="body1">Get 20% Off 1 Item</Typography>
               <Typography variant="body2" color="textSecondary">
-                Orders $50 or more
+                Orders Rp 500.000 or more
               </Typography>
             </div>
           </div>

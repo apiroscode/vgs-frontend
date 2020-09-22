@@ -108,7 +108,7 @@ const ProductCard = ({ orderId, product }) => {
         <Typography gutterBottom className={classes.brandName}>
           {brandName}
         </Typography>
-        <Typography className={classes.price}>$ {price}</Typography>
+        <Typography className={classes.price}>Rp {price}</Typography>
         <div className={classes.qtyContainer}>
           <InputBase
             className={classes.input}

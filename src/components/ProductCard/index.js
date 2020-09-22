@@ -56,7 +56,8 @@ const ProductCard = ({ product }) => {
           </Typography>
           <Typography variant="h6">{name}</Typography>
           <Typography variant="body1" className={classes.price}>
-            ${price} {crossOutPrice && <span> ${crossOutPrice}</span>}
+            Rp {price.toLocaleString()}{" "}
+            {crossOutPrice ? <span> Rp {crossOutPrice.toLocaleString()}</span> : null}
           </Typography>
         </CardContent>
       </CardActionArea>

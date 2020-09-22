@@ -62,7 +62,7 @@ const Info = ({ product }) => {
           </Typography>
         </div>
         <Typography variant="h5" className={classes.price}>
-          ${price} {crossOutPrice && <span>${crossOutPrice}</span>}
+          Rp {price} {crossOutPrice && <span>Rp {crossOutPrice}</span>}
         </Typography>
         <AddToCart product={product} />
       </div>

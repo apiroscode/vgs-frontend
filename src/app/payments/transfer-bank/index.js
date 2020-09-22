@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 
 import { useParams } from "react-router-dom";
 import { useDocumentDataOnce } from "react-firebase-hooks/firestore";
@@ -6,7 +6,6 @@ import { useDocumentDataOnce } from "react-firebase-hooks/firestore";
 import { Container, Divider, makeStyles, Typography } from "@material-ui/core";
 
 import { firestore } from "@/config/firebase";
-import { StoreContext } from "@/config/store";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -42,25 +41,25 @@ const useStyles = makeStyles((theme) => ({
 }));
 const PaymentSuccess = () => {
   const classes = useStyles();
-  const [idr, setIdr] = useState(1);
+  // const [idr, setIdr] = useState(1);
   const { orderId } = useParams();
   const [order] = useDocumentDataOnce(firestore.collection("orders").doc(orderId));
-  const { setOrderId } = useContext(StoreContext);
+  // const { setOrderId } = useContext(StoreContext);
 
-  useEffect(() => {
-    const set = async () => {
-      setOrderId(null);
-      const responseRates = await fetch(
-        "https://api.exchangeratesapi.io/latest?base=USD&symbols=IDR"
-      );
-      const responseRatesOK = responseRates && responseRates.ok;
-      if (responseRatesOK) {
-        const rates = await responseRates.json();
-        setIdr(rates?.rates?.IDR);
-      }
-    };
-    set();
-  }, [setOrderId]);
+  // useEffect(() => {
+  //   const set = async () => {
+  //     setOrderId(null);
+  //     const responseRates = await fetch(
+  //       "https://api.exchangeratesapi.io/latest?base=USD&symbols=IDR"
+  //     );
+  //     const responseRatesOK = responseRates && responseRates.ok;
+  //     if (responseRatesOK) {
+  //       const rates = await responseRates.json();
+  //       setIdr(rates?.rates?.IDR);
+  //     }
+  //   };
+  //   set();
+  // }, [setOrderId]);
 
   return order ? (
     <Container maxWidth="lg">
@@ -93,8 +92,11 @@ const PaymentSuccess = () => {
           <Divider className={classes.divider} />
           <div className={classes.content}>
             <Typography variant="body2">TOTAL:</Typography>
+            {/*<Typography variant="h6" color="secondary">*/}
+            {/*  $ {order.totalAmount} / IDR {Math.floor(order.totalAmount * idr).toLocaleString()}*/}
+            {/*</Typography>*/}
             <Typography variant="h6" color="secondary">
-              $ {order.totalAmount} / IDR {Math.floor(order.totalAmount * idr).toLocaleString()}
+              Rp {order.totalAmount.toLocaleString()}
             </Typography>
           </div>
         </div>

@@ -25,15 +25,15 @@ const Methods = ({ cart }) => {
 
   const handleClick = async (method) => {
     setLoading(true);
-    let idr = 0;
-    const responseRates = await fetch(
-      "https://api.exchangeratesapi.io/latest?base=USD&symbols=IDR"
-    );
-    const responseRatesOK = responseRates && responseRates.ok;
-    if (responseRatesOK) {
-      const rates = await responseRates.json();
-      idr = rates?.rates?.IDR || idr;
-    }
+    // let idr = 0;
+    // const responseRates = await fetch(
+    //   "https://api.exchangeratesapi.io/latest?base=USD&symbols=IDR"
+    // );
+    // const responseRatesOK = responseRates && responseRates.ok;
+    // if (responseRatesOK) {
+    //   const rates = await responseRates.json();
+    //   idr = rates?.rates?.IDR || idr;
+    // }
 
     if (method === "midtrans") {
       const snapUrl = "https://vgs-payment.herokuapp.com/midtrans";
@@ -42,7 +42,8 @@ const Methods = ({ cart }) => {
         method: "POST",
         body: JSON.stringify({
           order_id: id,
-          gross_amount: Math.floor(totalAmount * idr),
+          gross_amount: totalAmount,
+          // gross_amount: Math.floor(totalAmount * idr),
           email: email || "",
           phone: phone || "",
         }),
